@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Teams</title>
+</head>
+<body>
+  <%- include('../partials/_navbar.ejs') %>
+  <h1>Teams</h1>
+  <ul>
+    <% teams.forEach(team => { %>
+      <li>
+        <%= team.team_name %> (<%= team.league %>)
+        <% if (isSignedIn) { %>
+          <a href="/teams/<%= team._id %>/edit">Edit</a>
+        <% } %>
+      </li>
+    <% }) %>
+  </ul>
+  
+  <% if (isSignedIn) { %>
+    <a href="/teams/new">
+      <button>Add Team</button>
+    </a>
+  <% } %>
+</body>
+</html>

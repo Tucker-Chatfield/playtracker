@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add New Team</title>
+</head>
+<body>
+  <%- include('../partials/_navbar.ejs') %>
+  <h1>Add New Team</h1>
+  <form action="/teams" method="POST">
+    <label for="team_name">Team Name:</label>
+    <input type="text" id="team_name" name="team_name" required>
+    <br>
+    <label for="league">League:</label>
+    <input type="text" id="league" name="league" required>
+    <br>
+    <button type="submit">Add Team</button>
+  </form>
+</body>
+</html>
