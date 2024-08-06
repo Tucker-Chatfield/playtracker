@@ -43,15 +43,15 @@ app.use(passUserToView);
 
 app.get('/', (req, res) => {
   if (req.session.user) {
-    res.redirect(`/users/${req.session.user._id}/teams`);
+    res.redirect(`/teams`);
   } else {
     res.render('index.ejs');
   }
 });
 
-app.use('/auth', authController);
+app.use('/auth', authController );
 app.use(isSignedIn);
-app.use( '/users/:userId/teams', teamController );
+app.use( '/teams', teamController );
 app.use( '/players', playerController );
 
 app.listen(port, () => {
