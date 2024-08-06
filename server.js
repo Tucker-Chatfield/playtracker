@@ -12,6 +12,7 @@ const authController = require('./controllers/auth.js');
 const isSignedIn = require('./middleware/is-signed-in.js');
 const passUserToView = require('./middleware/pass-user-to-view.js');
 const teamController = require('./controllers/team.js');
+const playerController = require('./controllers/player.js');
 const path = require('path');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -51,6 +52,7 @@ app.get('/', (req, res) => {
 app.use('/auth', authController);
 app.use(isSignedIn);
 app.use( '/users/:userId/teams', teamController );
+app.use( '/players', playerController );
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
