@@ -7,10 +7,14 @@ const methodOverride = require('method-override');
 const morgan = require('morgan');
 const session = require('express-session');
 
+
 const authController = require('./controllers/auth.js');
 const isSignedIn = require('./middleware/is-signed-in.js');
 const passUserToView = require('./middleware/pass-user-to-view.js');
 const teamController = require('./controllers/team.js');
+const path = require('path');
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 const port = process.env.PORT ? process.env.PORT : '3000';
 
@@ -46,7 +50,7 @@ app.get('/', (req, res) => {
 
 app.use('/auth', authController);
 app.use(isSignedIn);
-app.use('/team', teamController);
+app.use( '/users/:userId/teams', teamController );
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
