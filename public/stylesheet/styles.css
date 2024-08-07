@@ -1,0 +1,150 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(245, 245, 245);
+  color: #333;
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1, h2 {
+  color: #333;
+}
+
+.team-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+/* Dashboard styles */
+.dashboard-summary {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2em;
+}
+
+.summary-card {
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  padding: 1em;
+  text-align: center;
+}
+
+.quick-actions {
+  margin-bottom: 2em;
+}
+
+.quick-actions .button {
+  margin-right: 1em;
+}
+
+.recent-activity ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.recent-activity li {
+  margin-bottom: 0.5em;
+}
+
+/* Navbar Styles */
+nav {
+  background-color: #333;
+  padding: 10px 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  margin: 0 5px;
+}
+
+nav a:hover {
+  background-color: #555;
+}
+
+/* Button Styles */
+button, .button {
+  background-color: #6a5acd;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+button:hover, .button:hover {
+  background-color: #483d8b;
+}
+
+/* Form Styles */
+form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+input[type="text"], input[type="password"], input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+/* Logo Styles */
+.logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo img {
+  width: 100px;
+  height: 100px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav {
+      text-align: center;
+  }
+  
+  nav a {
+      display: block;
+      margin: 5px 0;
+  }
+  
+  table {
+      font-size: 14px;
+  }
+}

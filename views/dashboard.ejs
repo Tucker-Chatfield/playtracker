@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayTracker Dashboard</title>
+    <link rel="stylesheet" href="/stylesheet/styles.css">
+</head>
+<body>
+    <%- include('./partials/_navbar.ejs') %>
+    <div class="container">
+        <h1>Welcome to Your PlayTracker Dashboard</h1>
+        
+        <div class="dashboard-summary">
+            <div class="summary-card">
+                <h3>Teams</h3>
+                <p>Total Teams: <%= teamCount %></p>
+                <a href="/teams" class="button">View Teams</a>
+            </div>
+            <div class="summary-card">
+                <h3>Players</h3>
+                <p>Total Players: <%= playerCount %></p>
+                <a href="/players" class="button">View Players</a>
+            </div>
+        </div>
+
+        <div class="quick-actions">
+            <h2>Quick Actions</h2>
+            <a href="/teams/new" class="button">Add New Team</a>
+            <a href="/players/new" class="button">Add New Player</a>
+        </div>
+
+        <div class="recent-activity">
+            <h2>Recent Activity</h2>
+            <ul>
+                <% recentActivity.forEach(activity => { %>
+                    <li><%= activity %></li>
+                <% }) %>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
