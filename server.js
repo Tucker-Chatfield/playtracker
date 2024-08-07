@@ -50,9 +50,8 @@ app.get('/', (req, res) => {
 });
 
 app.use('/auth', authController );
-app.use(isSignedIn);
-app.use( '/teams', teamController );
-app.use( '/players', playerController );
+app.use('/players', playerController);
+app.use('/teams', teamController);
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);

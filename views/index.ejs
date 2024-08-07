@@ -6,6 +6,7 @@
   <title>PlayTracker</title>
 </head>
 <body>
+  <%- include('./partials/_navbar.ejs') %>
   <h1>PlayTracker</h1>
   <% if (user) { %>
     <h2>Welcome to the app, <%= user.username %>!</h2>

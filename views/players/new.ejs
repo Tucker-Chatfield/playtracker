@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Player</title>
+</head>
+<body>
+    <%- include('../partials/_navbar') %>
+    <h1>Add New Player</h1>
+    
+    <form action="/players" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="batting_avg">Batting Average:</label>
+        <input type="text" id="batting_avg" name="batting_avg" required>
+        
+        <label for="home_runs">Home Runs:</label>
+        <input type="number" id="home_runs" name="home_runs" required>
+        
+        <label for="rbi">RBI:</label>
+        <input type="number" id="rbi" name="rbi" required>
+        
+        <label for="runs">Runs:</label>
+        <input type="number" id="runs" name="runs" required>
+        
+        <label for="stolen_bases">Stolen Bases:</label>
+        <input type="number" id="stolen_bases" name="stolen_bases" required>
+        
+        <button type="submit">Add Player</button>
+    </form>
+</body>
+</html>

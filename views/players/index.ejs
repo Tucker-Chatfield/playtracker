@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Players</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .edit-form {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <%- include('../partials/_navbar') %>
+    <h1>Players</h1>
+    
+    <% if (isSignedIn) { %>
+        <a href="/players/new"><button>Add New Player</button></a>
+    <% } %>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Batting Avg</th>
+                <th>Home Runs</th>
+                <th>RBI</th>
+                <th>Runs</th>
+                <th>Stolen Bases</th>
+                <% if (isSignedIn) { %>
+                    <th>Actions</th>
+                <% } %>
+            </tr>
+        </thead>
+        <tbody>
+            <% players.forEach(player => { %>
+                <tr>
+                    <td><%= player.name %></td>
+                    <td><%= player.batting_avg %></td>
+                    <td><%= player.home_runs %></td>
+                    <td><%= player.rbi %></td>
+                    <td><%= player.runs %></td>
+                    <td><%= player.stolen_bases %></td>
+                    <% if (isSignedIn) { %>
+                        <td>
+                            <button onclick="toggleEditForm('<%= player._id %>')">Edit</button>
+                            <form action="/players/<%= player._id %>?_method=DELETE" method="POST" style="display:inline;">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </td>
+                    <% } %>
+                </tr>
+                <% if (isSignedIn) { %>
+                    <tr class="edit-form" id="edit-<%= player._id %>">
+                        <td colspan="7">
+                            <form action="/players/<%= player._id %>?_method=PUT" method="POST">
+                                <input type="text" name="name" value="<%= player.name %>" required>
+                                <input type="text" name="batting_avg" value="<%= player.batting_avg %>" required>
+                                <input type="number" name="home_runs" value="<%= player.home_runs %>" required>
+                                <input type="number" name="rbi" value="<%= player.rbi %>" required>
+                                <input type="number" name="runs" value="<%= player.runs %>" required>
+                                <input type="number" name="stolen_bases" value="<%= player.stolen_bases %>" required>
+                                <button type="submit">Update</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% } %>
+            <% }) %>
+        </tbody>
+    </table>
+
+    <% if (isSignedIn) { %>
+        <script>
+            function toggleEditForm(playerId) {
+                var form = document.getElementById('edit-' + playerId);
+                form.style.display = form.style.display === 'none' ? 'table-row' : 'none';
+            }
+        </script>
+    <% } %>
+</body>
+</html>
