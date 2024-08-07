@@ -47,7 +47,7 @@
                     <% } %>
                 </tr>
                 <% if (isSignedIn) { %>
-                    <tr class="edit-form" id="edit-<%= player._id %>">
+                    <tr class="edit-form" id="edit-<%= player._id %>" style="display: none;">
                         <td colspan="7">
                             <form action="/players/<%= player._id %>?_method=PUT" method="POST">
                                 <input type="text" name="name" value="<%= player.name %>" required>
@@ -68,7 +68,7 @@
     <% if (isSignedIn) { %>
         <script>
             function toggleEditForm(playerId) {
-                var form = document.getElementById('edit-' + playerId);
+                const form = document.getElementById('edit-' + playerId);
                 form.style.display = form.style.display === 'none' ? 'table-row' : 'none';
             }
         </script>

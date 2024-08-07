@@ -9,6 +9,7 @@
 <body>
   <%- include('./partials/_navbar.ejs') %>
   <h1>PlayTracker</h1>
+  <img src="/stylesheet/images/baseball.png" alt="baseball image" width="400" height="400">
   <% if (user) { %>
     <h2>Welcome to the app, <%= user.username %>!</h2>
     <p>
@@ -17,8 +18,13 @@
   <% } else { %>
     <h2>Sign up or login to start tracking your rec baseball league</h2>
     <p>
-      <a href="/auth/sign-up">Sign up</a> or
-      <a href="/auth/sign-in">Sign in</a>.
+      <form action="/auth/sign-up" method="GET" style="display: inline;">
+        <button type="submit" class="button">Sign up</button>
+      </form>
+
+      <form action="/auth/sign-in" method="GET" style="display: inline;">
+        <button type="submit" class="button">Sign in</button>
+      </form>
     </p>
   <% } %>
 </body>
