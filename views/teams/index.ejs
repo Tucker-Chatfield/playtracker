@@ -7,7 +7,7 @@
 <body>
   <%- include('../partials/_navbar.ejs') %>
   <h1>Teams</h1>
-  <ul>
+  <ul class="team-list">
     <% teams.forEach(team => { %>
       <li>
         <%= team.team_name %> (<%= team.league %>)

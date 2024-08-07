@@ -15,5 +15,8 @@
     <br>
     <button type="submit">Save Changes</button>
   </form>
+  <form action="/teams/<%= team._id %>?_method=DELETE" method="POST">
+    <button type="submit">Delete</button>
+  </form>
 </body>
 </html>
