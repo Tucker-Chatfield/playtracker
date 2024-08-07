@@ -13,6 +13,7 @@ const isSignedIn = require('./middleware/is-signed-in.js');
 const passUserToView = require('./middleware/pass-user-to-view.js');
 const teamController = require('./controllers/team.js');
 const playerController = require('./controllers/player.js');
+const dashboardController = require('./controllers/dashboard.js');
 const path = require('path');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -28,6 +29,7 @@ mongoose.connection.on('connected', () => {
 const Team = require("./models/team.js");
 const Player = require("./models/player.js");
 
+app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 // app.use(morgan('dev'));
@@ -43,15 +45,16 @@ app.use(passUserToView);
 
 app.get('/', (req, res) => {
   if (req.session.user) {
-    res.redirect(`/teams`);
+    res.redirect(`/dashboard`);
   } else {
     res.render('index.ejs');
   }
 });
 
-app.use('/auth', authController );
+app.use('/auth', authController);
 app.use('/players', playerController);
 app.use('/teams', teamController);
+app.use('/dashboard', dashboardController);
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);

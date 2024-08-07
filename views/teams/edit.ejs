@@ -6,7 +6,7 @@
 <body>
   <%- include('../partials/_navbar.ejs') %>
   <h1>Edit Team</h1>
-  <form action="/teams/<%= team._id %>" method="POST">
+  <form action="/teams/<%= team._id %>?_method=PUT" method="POST">
     <label for="team_name">Team Name:</label>
     <input type="text" id="team_name" name="team_name" value="<%= team.team_name %>" required>
     <br>
