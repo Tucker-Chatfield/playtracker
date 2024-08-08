@@ -47,9 +47,9 @@ Here's how to get started with PlayTracker:
 
 ## :satellite: Upcoming Features
 
-- [:star:] Team schedules
-- [:star:] Previous game scores and results
-- [:star:] Community discussion board for league-wide conversations
+- :star: Team schedules
+- :star: Previous game scores and results
+- :star: Community discussion board for league-wide conversations
 
 We're always looking to improve PlayTracker. If you have any suggestions, please let us know!
 
