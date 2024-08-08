@@ -9,18 +9,18 @@
 <body>
     <%- include('./partials/_navbar.ejs') %>
     <div class="container">
-        <h1>Welcome to Your PlayTracker Dashboard</h1>
+        <h1>Welcome, <%= user.username %>!</h1>
         
         <div class="dashboard-summary">
             <div class="summary-card">
-                <h3>Teams</h3>
+                <h3>Your Teams</h3>
                 <p>Total Teams: <%= teamCount %></p>
-                <a href="/teams" class="button">View Teams</a>
+                <a href="/teams" class="button">View Your Teams</a>
             </div>
             <div class="summary-card">
-                <h3>Players</h3>
+                <h3>Your Players</h3>
                 <p>Total Players: <%= playerCount %></p>
-                <a href="/players" class="button">View Players</a>
+                <a href="/players" class="button">View Your Players</a>
             </div>
         </div>
 

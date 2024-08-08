@@ -24,7 +24,12 @@ const playerSchema = mongoose.Schema({
   stolen_bases: {
     type: Number,
     required: true,
-  }
+  },
+  user_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
 });
 
 const Player = mongoose.model('Player', playerSchema);

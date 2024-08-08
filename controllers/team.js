@@ -21,16 +21,16 @@ router.get('/new', isSignedIn, (req, res) => {
 
 // Edit - Show form to edit a team
 router.get('/:id/edit', isSignedIn, async (req, res) => {
-    try {
-      const team = await Team.findById(req.params.id);
-      if (!team) {
-        return res.status(404).render('error', { message: 'Team not found' });
-      }
-      res.render('teams/edit', { team });
-    } catch (error) {
-      res.status(500).render('error', { message: 'Error fetching team' });
+  try {
+    const team = await Team.findById(req.params.id);
+    if (!team) {
+      return res.status(404).render('error', { message: 'Team not found' });
     }
-  });
+    res.render('teams/edit', { team });
+  } catch (error) {
+    res.status(500).render('error', { message: 'Error fetching team' });
+  }
+});
 
 // Create - Add a new team
 router.post('/', isSignedIn, async (req, res) => {

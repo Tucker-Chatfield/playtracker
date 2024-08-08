@@ -9,11 +9,9 @@
   <form action="/teams/<%= team._id %>?_method=PUT" method="POST">
     <label for="team_name">Team Name:</label>
     <input type="text" id="team_name" name="team_name" value="<%= team.team_name %>" required>
-    <br>
     <label for="league">League:</label>
     <input type="text" id="league" name="league" value="<%= team.league %>" required>
-    <br>
-    <button type="submit">Save Changes</button>
+    <button type="submit">Update Team</button>
   </form>
   <form action="/teams/<%= team._id %>?_method=DELETE" method="POST">
     <button type="submit">Delete</button>

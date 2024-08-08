@@ -12,23 +12,23 @@
     <form action="/players/<%= player._id %>?_method=PUT" method="POST">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" value="<%= player.name %>" required>
-        
         <label for="batting_avg">Batting Average:</label>
         <input type="text" id="batting_avg" name="batting_avg" value="<%= player.batting_avg %>" required>
-        
         <label for="home_runs">Home Runs:</label>
         <input type="number" id="home_runs" name="home_runs" value="<%= player.home_runs %>" required>
-        
         <label for="rbi">RBI:</label>
         <input type="number" id="rbi" name="rbi" value="<%= player.rbi %>" required>
-        
         <label for="runs">Runs:</label>
         <input type="number" id="runs" name="runs" value="<%= player.runs %>" required>
-        
         <label for="stolen_bases">Stolen Bases:</label>
         <input type="number" id="stolen_bases" name="stolen_bases" value="<%= player.stolen_bases %>" required>
-        
+        <label for="team">Team:</label>
+        <select id="team" name="team_id">
+          <% userTeams.forEach(team => { %>
+            <option value="<%= team._id %>" <%= player.team_id && player.team_id.toString() === team._id.toString() ? 'selected' : '' %>><%= team.team_name %></option>
+          <% }) %>
+        </select>
         <button type="submit">Update Player</button>
-    </form>
+      </form>
 </body>
 </html>

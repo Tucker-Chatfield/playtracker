@@ -50,40 +50,40 @@
                     <tr class="edit-form" id="edit-<%= player._id %>" style="display: none;">
                         <td colspan="7">
                             <div class="player-form-container">
-                                <form action="/players/<%= player._id %>?_method=PUT" method="POST" class="player-form">
-                                    <div class="form-group">
-                                        <label for="name">Name:</label>
-                                        <input type="text" id="name" name="name" value="<%= player.name %>" required>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="batting_avg">Batting Average:</label>
-                                        <input type="text" id="batting_avg" name="batting_avg" value="<%= player.batting_avg %>" required>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="home_runs">Home Runs:</label>
-                                        <input type="number" id="home_runs" name="home_runs" value="<%= player.home_runs %>" required>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="rbi">RBI:</label>
-                                        <input type="number" id="rbi" name="rbi" value="<%= player.rbi %>" required>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="runs">Runs:</label>
-                                        <input type="number" id="runs" name="runs" value="<%= player.runs %>" required>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="stolen_bases">Stolen Bases:</label>
-                                        <input type="number" id="stolen_bases" name="stolen_bases" value="<%= player.stolen_bases %>" required>
-                                    </div>
-                                    
-                                    <button type="submit">Update</button>
-                                </form>
-                            </div>
+                            <form action="/players/<%= player._id %>?_method=PUT" method="POST" class="player-form">
+                                <div class="form-group">
+                                    <label for="name">Name:</label>
+                                    <input type="text" id="name" name="name" value="<%= player.name %>" required>
+                                </div>
+                                  
+                                <div class="form-group">
+                                    <label for="batting_avg">Batting Average:</label>
+                                    <input type="text" id="batting_avg" name="batting_avg" value="<%= player.batting_avg %>" required>
+                                </div>
+                                  
+                                <div class="form-group">
+                                    <label for="home_runs">Home Runs:</label>
+                                    <input type="number" id="home_runs" name="home_runs" value="<%= player.home_runs %>" required>
+                                </div>
+                                  
+                                <div class="form-group">
+                                    <label for="rbi">RBI:</label>
+                                    <input type="number" id="rbi" name="rbi" value="<%= player.rbi %>" required>
+                                </div>
+                                  
+                                <div class="form-group">
+                                    <label for="runs">Runs:</label>
+                                    <input type="number" id="runs" name="runs" value="<%= player.runs %>" required>
+                                </div>
+                                  
+                                <div class="form-group">
+                                    <label for="stolen_bases">Stolen Bases:</label>
+                                    <input type="number" id="stolen_bases" name="stolen_bases" value="<%= player.stolen_bases %>" required>
+                                </div>
+                                  
+                                <button type="submit">Update</button>
+                            </form>
+                        </div>
                         </td>
                     </tr>
                 <% } %>
