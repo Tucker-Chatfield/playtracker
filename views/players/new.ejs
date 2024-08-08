@@ -9,7 +9,6 @@
     <%- include('../partials/_navbar') %>
     <h1>Add New Player</h1>
 
-    <% if (isSignedIn) { %>
     <form action="/players" method="POST">
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" required />
@@ -31,6 +30,5 @@
 
       <button type="submit">Add Player</button>
     </form>
-    <% } %>
   </body>
 </html>
