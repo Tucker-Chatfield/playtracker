@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Team = require('../models/team.js');
 const isSignedIn = require('../middleware/is-signed-in.js');
+const User = require('../models/user.js')
 
 // Index - Show all teams
 router.get('/', async (req, res) => {
@@ -46,19 +47,28 @@ router.post('/', isSignedIn, async (req, res) => {
 // Update - Update a team
 router.put('/:id', isSignedIn, async (req, res) => {
     try {
-        const updatedTeamData = {
+        // Update the team details based on the form submission
+        const updatedTeam = await Team.findByIdAndUpdate(req.params.id, {
             team_name: req.body.team_name,
             league: req.body.league,
-            your_team: req.body.your_team === 'on'
-        };
+        }, { new: true, runValidators: true });
 
-        const updatedTeam = await Team.findByIdAndUpdate(req.params.id, updatedTeamData, { new: true, runValidators: true });
         if (!updatedTeam) {
             return res.status(404).render('error', { message: 'Team not found' });
         }
+
+        // If "Your Team" checkbox is checked, add this team to the user's yourTeams array
+        if (req.body.yourTeam) {
+            await User.findByIdAndUpdate(req.session.user._id, { $addToSet: { yourTeams: updatedTeam._id } });
+        } else {
+            // If "Your Team" checkbox is unchecked, remove the team from the user's yourTeams array
+            await User.findByIdAndUpdate(req.session.user._id, { $pull: { yourTeams: updatedTeam._id } });
+        }
+
+        // Redirect to the teams page after the update
         res.redirect('/teams');
     } catch (error) {
-        res.status(400).render('error', { message: 'Error updating team' });
+        console.error('Error updating team:', error);
     }
 });
 

@@ -9,6 +9,10 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  yourTeams: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Team'
+  }]
 });
 
 const User = mongoose.model('User', userSchema);

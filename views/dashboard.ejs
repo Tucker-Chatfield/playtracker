@@ -14,8 +14,15 @@
         <div class="dashboard-summary">
             <div class="summary-card">
                 <h3>Your Teams</h3>
-                <p>Total Teams: <%= teamCount %></p>
-                <a href="/teams" class="button">View Your Teams</a>
+                <% if (yourTeams.length > 0) { %>
+                    <ul>
+                        <% yourTeams.forEach(team => { %>
+                            <li><%= team.team_name %></li>
+                        <% }); %>
+                    </ul>
+                <% } else { %>
+                    <p>You have no teams.</p>
+                <% } %>
             </div>
             <div class="summary-card">
                 <h3>Your Players</h3>
