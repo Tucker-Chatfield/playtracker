@@ -46,7 +46,13 @@ router.post('/', isSignedIn, async (req, res) => {
 // Update - Update a team
 router.put('/:id', isSignedIn, async (req, res) => {
     try {
-        const updatedTeam = await Team.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
+        const updatedTeamData = {
+            team_name: req.body.team_name,
+            league: req.body.league,
+            your_team: req.body.your_team === 'on'
+        };
+
+        const updatedTeam = await Team.findByIdAndUpdate(req.params.id, updatedTeamData, { new: true, runValidators: true });
         if (!updatedTeam) {
             return res.status(404).render('error', { message: 'Team not found' });
         }

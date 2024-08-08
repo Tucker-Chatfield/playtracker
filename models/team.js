@@ -9,6 +9,10 @@ const teamSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  your_team: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const Team = mongoose.model('Team', teamSchema);
